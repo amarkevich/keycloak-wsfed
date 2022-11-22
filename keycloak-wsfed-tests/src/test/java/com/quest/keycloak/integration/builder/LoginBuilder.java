@@ -99,7 +99,7 @@ public class LoginBuilder implements WsFedClient.Step {
     private HttpUriRequest handleLoginPage(String loginPage, URI currentURI) {
         if (idpAlias != null) {
             org.jsoup.nodes.Document theLoginPage = Jsoup.parse(loginPage);
-            Element zocialLink = theLoginPage.getElementById("zocial-" + this.idpAlias);
+            Element zocialLink = theLoginPage.getElementById("social-" + this.idpAlias);
             assertThat("Unknown idp: " + this.idpAlias, zocialLink, Matchers.notNullValue());
             final String link = zocialLink.attr("href");
             assertThat("Invalid idp link: " + this.idpAlias, link, Matchers.notNullValue());
